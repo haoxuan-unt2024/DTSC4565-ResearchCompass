@@ -1,0 +1,178 @@
+[
+ {
+  "document_id": "demo_001",
+  "title": "Federated Learning for Brain Tumor Segmentation Across Hospitals",
+  "authors": "Wei Zhang, Aisha Okafor",
+  "pub_date": "2025-02-15",
+  "source": "demo (fictional)",
+  "abstract": "In federated learning for medical imaging, we train a segmentation model across five sites without sharing scans. Performance on small sites remains unclear and is a limitation."
+ },
+ {
+  "document_id": "demo_002",
+  "title": "Client Drift in Federated Medical Imaging: Causes and Remedies",
+  "authors": "Aisha Okafor, Lukas Novak, Priya Raman",
+  "pub_date": "2025-03-15",
+  "source": "demo (fictional)",
+  "abstract": "In federated learning for medical imaging, non-IID data causes client drift. We propose a correction; generalization to unseen scanners is an open question."
+ },
+ {
+  "document_id": "demo_003",
+  "title": "Privacy Attacks on Federated Chest X-ray Models",
+  "authors": "Lukas Novak",
+  "pub_date": "2024-04-15",
+  "source": "demo (fictional)",
+  "abstract": "In federated learning for medical imaging, gradient inversion can reconstruct images. Defenses with low accuracy cost are not yet available."
+ },
+ {
+  "document_id": "demo_004",
+  "title": "Personalized Federated Learning for Retinal Imaging",
+  "authors": "Priya Raman, Tom Becker",
+  "pub_date": "2024-05-15",
+  "source": "demo (fictional)",
+  "abstract": "In federated learning for medical imaging, personalized heads improve per-site accuracy. Future work should study label scarcity."
+ },
+ {
+  "document_id": "demo_005",
+  "title": "Federated Learning in Medical Imaging: A Systematic Review",
+  "authors": "Tom Becker, Yuki Tanaka, Sara Haddad",
+  "pub_date": "2023-06-15",
+  "source": "demo (fictional)",
+  "abstract": "In federated learning for medical imaging, we review 120 studies and summarize common design choices."
+ },
+ {
+  "document_id": "demo_006",
+  "title": "Communication-Efficient Federated Training for 3D MRI",
+  "authors": "Yuki Tanaka",
+  "pub_date": "2025-07-15",
+  "source": "demo (fictional)",
+  "abstract": "In federated learning for medical imaging, compression reduces bandwidth by 80 percent. The challenge of heterogeneous hardware remains."
+ },
+ {
+  "document_id": "demo_007",
+  "title": "Fairness Across Sites in Federated Dermatology Classifiers",
+  "authors": "Sara Haddad, Daniel Kim",
+  "pub_date": "2025-08-15",
+  "source": "demo (fictional)",
+  "abstract": "In federated learning for medical imaging, minority sites are underserved; fairness under federation is understudied."
+ },
+ {
+  "document_id": "demo_008",
+  "title": "Federated Domain Adaptation for Histopathology",
+  "authors": "Daniel Kim",
+  "pub_date": "2024-09-15",
+  "source": "demo (fictional)",
+  "abstract": "In federated learning for medical imaging, stain variation hurts transfer. We adapt features per site; little is known about rare cancers."
+ },
+ {
+  "document_id": "demo_009",
+  "title": "Benchmarking Federated Medical Imaging Frameworks",
+  "authors": "Maria Garcia",
+  "pub_date": "2023-01-15",
+  "source": "demo (fictional)",
+  "abstract": "In federated learning for medical imaging, we compare four open frameworks on three tasks."
+ },
+ {
+  "document_id": "demo_010",
+  "title": "Label-Efficient Federated Learning for Ultrasound",
+  "authors": "Wei Zhang, Aisha Okafor",
+  "pub_date": "2026-02-15",
+  "source": "demo (fictional)",
+  "abstract": "In federated learning for medical imaging, semi-supervised federated training helps when labels are scarce, a gap in prior work."
+ },
+ {
+  "document_id": "demo_011",
+  "title": "Detecting Hallucinations in Large Language Models with Self-Consistency",
+  "authors": "Aisha Okafor, Lukas Novak, Priya Raman",
+  "pub_date": "2025-03-15",
+  "source": "demo (fictional)",
+  "abstract": "For LLM hallucination detection, sampling multiple answers flags unsupported claims. Cost at scale is a limitation."
+ },
+ {
+  "document_id": "demo_012",
+  "title": "A Survey of Hallucination in Large Language Models",
+  "authors": "Lukas Novak",
+  "pub_date": "2024-04-15",
+  "source": "demo (fictional)",
+  "abstract": "For LLM hallucination detection, we review definitions, benchmarks, and mitigation methods."
+ },
+ {
+  "document_id": "demo_013",
+  "title": "Hallucination Detection Survey: Taxonomy and Benchmarks",
+  "authors": "Priya Raman, Tom Becker",
+  "pub_date": "2025-05-15",
+  "source": "demo (fictional)",
+  "abstract": "For LLM hallucination detection, we overview detection methods and datasets."
+ },
+ {
+  "document_id": "demo_014",
+  "title": "Retrieval-Grounded Verification of LLM Answers",
+  "authors": "Tom Becker, Yuki Tanaka, Sara Haddad",
+  "pub_date": "2025-06-15",
+  "source": "demo (fictional)",
+  "abstract": "For LLM hallucination detection, retrieval reduces errors but calibration remains unclear."
+ },
+ {
+  "document_id": "demo_015",
+  "title": "A Review of Factuality Evaluation for Language Models",
+  "authors": "Yuki Tanaka",
+  "pub_date": "2024-07-15",
+  "source": "demo (fictional)",
+  "abstract": "For LLM hallucination detection, we review factuality metrics."
+ },
+ {
+  "document_id": "demo_016",
+  "title": "Token-Level Uncertainty Signals for Hallucination Detection",
+  "authors": "Sara Haddad, Daniel Kim",
+  "pub_date": "2026-08-15",
+  "source": "demo (fictional)",
+  "abstract": "For LLM hallucination detection, internal uncertainty predicts errors; transfer across model families is an open question."
+ },
+ {
+  "document_id": "demo_017",
+  "title": "Hallucination in Medical Question Answering: An Overview",
+  "authors": "Daniel Kim",
+  "pub_date": "2025-09-15",
+  "source": "demo (fictional)",
+  "abstract": "For LLM hallucination detection, we overview risks in clinical use."
+ },
+ {
+  "document_id": "demo_018",
+  "title": "Graph Neural Networks for Molecular Property Prediction",
+  "authors": "Maria Garcia",
+  "pub_date": "2019-01-15",
+  "source": "demo (fictional)",
+  "abstract": "Using graph neural networks for drug discovery, message passing predicts solubility and toxicity."
+ },
+ {
+  "document_id": "demo_019",
+  "title": "Equivariant Graph Networks for Protein-Ligand Binding",
+  "authors": "Wei Zhang, Aisha Okafor",
+  "pub_date": "2020-02-15",
+  "source": "demo (fictional)",
+  "abstract": "Using graph neural networks for drug discovery, equivariance improves binding affinity prediction."
+ },
+ {
+  "document_id": "demo_020",
+  "title": "Pretraining Graph Neural Networks on Molecules",
+  "authors": "Aisha Okafor, Lukas Novak, Priya Raman",
+  "pub_date": "2020-03-15",
+  "source": "demo (fictional)",
+  "abstract": "Using graph neural networks for drug discovery, self-supervised pretraining helps small datasets."
+ },
+ {
+  "document_id": "demo_021",
+  "title": "Scaffold Splits Reveal Overfitting in Molecular GNNs",
+  "authors": "Lukas Novak",
+  "pub_date": "2021-04-15",
+  "source": "demo (fictional)",
+  "abstract": "Using graph neural networks for drug discovery, random splits overstate accuracy."
+ },
+ {
+  "document_id": "demo_022",
+  "title": "Explaining Graph Neural Network Predictions for Chemists",
+  "authors": "Priya Raman, Tom Becker",
+  "pub_date": "2021-05-15",
+  "source": "demo (fictional)",
+  "abstract": "Using graph neural networks for drug discovery, we highlight substructures driving predictions."
+ }
+]

@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "research-compass"
+version = "0.1.0"
+description = "Find a thesis topic, organize a literature survey, and draft a research proposal, using Paperclip for paper search."
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = []
+
+[project.optional-dependencies]
+# Paperclip SDK (Apache-2.0). Distributed as a wheel from paperclip.gxl.ai, not PyPI.
+paperclip = ["gxl-paperclip @ https://paperclip.gxl.ai/paperclip.whl"]
+dev = ["pytest>=8", "pytest-cov>=5"]
+
+[project.scripts]
+research-compass = "research_compass.cli:main"
+
+[tool.setuptools]
+packages = ["research_compass"]
+
+[tool.setuptools.package-data]
+research_compass = ["sample_papers.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

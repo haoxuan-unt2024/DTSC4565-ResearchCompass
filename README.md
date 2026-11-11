@@ -1,1 +1,0 @@
-# DTSC4565-ResearchCompass

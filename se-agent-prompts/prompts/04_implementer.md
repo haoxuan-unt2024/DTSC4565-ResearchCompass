@@ -16,7 +16,7 @@ How your code will be saved: every fenced code block tagged `python`, `javascrip
 Your reply has a length limit. Aim for no more than about 700 lines of code in total across all files.
 
 ## 3. Task/Objective
-Write the source code for the app in the brief as complete files that follow the file plan, implementing every Must requirement first and Should requirements only if space remains, then give run instructions and a table tracing each requirement to the file and function that implements it. Done means a team member can follow your run instructions on a clean machine and exercise every Must requirement, and every Must requirement appears in the trace table or in the list of what is not implemented.
+Write the source code for the app in the brief as complete files that follow the file plan, implementing every Must requirement first and Should requirements only if space remains, in the order the brief lists them, then give run instructions and a table tracing each requirement to the file and function that implements it. Done means a team member can follow your run instructions on a clean machine and exercise every Must requirement, and every Must requirement appears in the trace table or in the list of what is not implemented.
 
 ## 4. Requirements
 - Every file is complete: no placeholders, no "rest of code here", no ellipses standing in for code.

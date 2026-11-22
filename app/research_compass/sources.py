@@ -98,7 +98,8 @@ class PaperclipSource:
                 from gxl_paperclip import PaperclipClient
             except ImportError as e:
                 raise SourceError(
-                    "Paperclip SDK is not installed. Run: pip install https://paperclip.gxl.ai/paperclip.whl"
+                    "Paperclip SDK is not installed. Run: pip install https://paperclip.gxl.ai/paperclip.whl "
+                    "then `paperclip login`. Use --offline to try the app with sample data."
                 ) from e
             try:
                 self._client = PaperclipClient.from_env()

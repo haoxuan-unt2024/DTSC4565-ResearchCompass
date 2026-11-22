@@ -73,3 +73,43 @@ def test_recent_window_boundary():
     # RECENT_YEARS = 2 means this year and last year count; two years ago does not.
     papers = [make_paper(1, year=NOW), make_paper(2, year=NOW - 1), make_paper(3, year=NOW - 2), make_paper(4, year=NOW - 3)]
     assert topics.score_topic("x", papers, NOW).recent_share == 0.5
+
+
+# --- Missing metadata and weight sensitivity (added after brief feedback, Full Spec R11/R12) ---
+
+def test_missing_abstract_is_not_counted_as_no_gap():
+    papers = many(5) + many(5, abstract="")
+    c = topics.score_topic("x", papers, NOW)
+    assert c.gap_share == 1.0
+    assert any("5 have no abstract" in r for r in c.reasons)
+
+
+@pytest.mark.parametrize("undated, expected", [(5, False), (6, True)])
+def test_low_confidence_when_most_papers_lack_metadata(undated, expected):
+    papers = many(10 - undated) + many(undated, year=None)
+    c = topics.score_topic("x", papers, NOW)
+    assert c.low_confidence is expected
+    assert any("Low confidence" in r for r in c.reasons) is expected
+
+
+def test_complete_metadata_adds_no_data_warning():
+    assert len(topics.score_topic("x", many(10), NOW).reasons) == 4
+
+
+def test_alternative_weights_each_sum_to_one():
+    alts = topics.alternative_weights()
+    assert len(alts) == 5
+    for w in alts.values():
+        assert sum(w.values()) == pytest.approx(1.0)
+
+
+def test_weight_sensitivity_counts_weightings_that_agree():
+    # "alpha" wins on recency; "beta" wins on stated gaps. Dropping recency flips the winner.
+    results = {"alpha": many(40, year=2026, abstract="Plain."), "beta": many(40, year=2015)}
+    assert topics.rank_topics(results, NOW)[0].query == "alpha"
+    assert topics.weight_sensitivity(results, NOW) == (4, 5)
+
+
+def test_weight_sensitivity_dominant_topic_is_stable():
+    results = {"strong": many(40), "weak": many(10, year=2012, abstract="Plain.")}
+    assert topics.weight_sensitivity(results, NOW) == (5, 5)

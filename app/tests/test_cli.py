@@ -60,3 +60,26 @@ def test_ask_offline_fails_gracefully(tmp_path, capsys):
     run(tmp_path, "init", "t")
     assert run(tmp_path, "ask", "What methods?") == 1
     assert "not available in --offline" in capsys.readouterr().err
+
+
+def test_topics_output_labels_scores_as_indicators(tmp_path, capsys):
+    run(tmp_path, "init", "t")
+    assert run(tmp_path, "topics", "federated learning medical imaging", "llm hallucination detection") == 0
+    out = capsys.readouterr().out
+    assert "do not judge research value" in out
+    assert "alternative weightings" in out
+
+
+def test_restore_undoes_the_last_change(tmp_path, capsys):
+    run(tmp_path, "init", "t")
+    run(tmp_path, "search", "federated learning")
+    run(tmp_path, "add", "1")
+    assert len(storage.load(tmp_path / "p.json").entries) == 1
+    assert run(tmp_path, "restore") == 0
+    assert storage.load(tmp_path / "p.json").entries == []
+
+
+def test_unwritable_output_path_is_an_error_not_a_crash(tmp_path, capsys):
+    run(tmp_path, "init", "t")
+    assert run(tmp_path, "matrix", "-o", str(tmp_path / "no_such_dir" / "m.md")) == 1
+    assert "error:" in capsys.readouterr().err

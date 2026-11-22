@@ -20,7 +20,7 @@ Write the requirements specification for the app in the brief: user stories, one
 - 3 to 8 user stories in the form "As a <user>, I want <goal> so that <benefit>", each listing the requirement IDs that realise it.
 - One requirements table with exactly these columns: ID, Type (F/NF), Requirement, Priority, Acceptance test, Source in brief, Owner. Leave Owner as "—" for the team to fill.
 - IDs R1, R2, R3 ... in one sequence. One behaviour per requirement, written with "shall".
-- Priority is Must, Should, or Could, taken from the brief section the item came from.
+- Priority is Must, Should, or Could, taken from the brief section the item came from. "Must do" items are the first working version. If the "Should do" list is ordered, keep that order: number Should requirements in the order given and say in the Summary that the order is the priority.
 - Each acceptance test names concrete inputs and the observable result (Given/When/Then or input → output), using the brief's own numbers and limits. Where the requirement rejects bad input, test a boundary value and one invalid value.
 - Non-functional requirements are measurable (a number, a limit, or a yes/no observable check). Cover only the categories the brief supports: usability and accessibility, reliability and error handling, performance, security and privacy, cost, maintainability and testability, portability.
 - If the brief names an external service, API, SDK, or AI model, include requirements for: what the user sees when it is unavailable, slow, rate-limited, or rejects the credentials; where credentials come from (never stored in code, the repo, or saved user data); and a way to run tests without the service, if the brief allows one.

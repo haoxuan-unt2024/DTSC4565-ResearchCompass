@@ -84,6 +84,7 @@ class TopicCandidate:
     score: float
     verdict: str
     reasons: list[str] = field(default_factory=list)
+    low_confidence: bool = False  # most papers lack a year or abstract
 
     def to_dict(self) -> dict:
         return asdict(self)

@@ -11,8 +11,8 @@ license = {text = "MIT"}
 dependencies = []
 
 [project.optional-dependencies]
-# Paperclip SDK (Apache-2.0). Distributed as a wheel from paperclip.gxl.ai, not PyPI.
-paperclip = ["gxl-paperclip @ https://paperclip.gxl.ai/paperclip.whl"]
+# The Paperclip SDK (Apache-2.0) is optional and installed separately, because it is served as
+# an unversioned wheel that uv cannot lock:  pip install https://paperclip.gxl.ai/paperclip.whl
 dev = ["pytest>=8", "pytest-cov>=5"]
 
 [project.scripts]

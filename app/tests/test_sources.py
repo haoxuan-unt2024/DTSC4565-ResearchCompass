@@ -2,6 +2,7 @@ from types import SimpleNamespace
 
 import pytest
 
+from tests.conftest import make_paper
 from research_compass.sources import OfflineSource, PaperclipSource, SourceError, normalize
 
 
@@ -66,3 +67,12 @@ def test_offline_source_is_deterministic():
     assert OfflineSource().search("zzz qqq").papers == []
     with pytest.raises(SourceError):
         src.ask("q", "offline")
+
+
+def test_offline_search_ranks_best_match_first():
+    papers = [make_paper(1, year=2020, title="Federated imaging", abstract=""),
+              make_paper(2, year=2024, title="Federated learning for medical imaging", abstract=""),
+              make_paper(3, year=2025, title="Medical imaging only", abstract="")]
+    got = OfflineSource(papers).search("federated learning medical imaging").papers
+    # more query words matched first; ties broken by newer year
+    assert [p.id for p in got] == ["p2", "p3", "p1"]

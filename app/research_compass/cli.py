@@ -59,11 +59,16 @@ def cmd_topics(args, now):
     project.candidates = ranked
     storage.save(project, args.project)
 
+    print("Indicators from search metadata. They describe the literature; they do not judge research value.\n")
     print(f"{'Score':>5}  {'Verdict':<11} Topic")
     for c in ranked:
         print(f"{c.score:>5.1f}  {c.verdict:<11} {c.query}")
         for r in c.reasons:
             print(f"{'':18}- {r}")
+    if len(ranked) > 1:
+        agree, total = topics.weight_sensitivity(results, now.year)
+        print(f"\nRobustness: '{ranked[0].query}' stays first under {agree} of {total} alternative weightings "
+              "(equal weights, and each indicator dropped in turn).")
     best = ranked[0]
     ideas = topics.suggest_narrower(best.query, results[best.query])
     if ideas:
@@ -185,6 +190,12 @@ def cmd_bib(args, _now):
     _write_or_print(proposal.to_bibtex([e.paper for e in project.entries]), args.out)
 
 
+def cmd_restore(args, _now):
+    project = storage.restore(args.project)
+    print(f"Restored the previous save of '{project.name}' ({len(project.entries)} paper(s)). "
+          "Run `restore` again to undo this.")
+
+
 def cmd_ask(args, now):
     project = storage.load(args.project)
     text = _source(args).ask(args.question, project.last_result_id)
@@ -238,6 +249,9 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--method"); s.add_argument("--phase", action="append", help="'Name:weeks', repeatable")
     s.set_defaults(fn=cmd_plan)
 
+    sub.add_parser("restore", help="undo the last change (swap project file and its .bak backup)").set_defaults(
+        fn=cmd_restore)
+
     s = sub.add_parser("ask", help="AI reader over the last search (Paperclip map); saves a draft")
     s.add_argument("question"); s.add_argument("-o", "--out"); s.set_defaults(fn=cmd_ask)
     return p
@@ -247,7 +261,7 @@ def main(argv: list[str] | None = None, now: dt.datetime | None = None) -> int:
     args = build_parser().parse_args(argv)
     try:
         args.fn(args, now or dt.datetime.now())
-    except (ValueError, KeyError, SourceError, storage.StorageError) as e:
+    except (ValueError, KeyError, OSError, SourceError, storage.StorageError) as e:
         msg = e.args[0] if isinstance(e, KeyError) and e.args else str(e)
         print(f"error: {msg}", file=sys.stderr)
         return 1

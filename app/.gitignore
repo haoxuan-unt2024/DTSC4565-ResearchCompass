@@ -3,3 +3,8 @@ __pycache__/
 .coverage
 .env
 project.json
+.venv/
+*.tmp
+*.bak
+ai_draft_*.md
+*.egg-info/
